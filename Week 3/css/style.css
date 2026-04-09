@@ -15,6 +15,14 @@ body{
     /* Setting height */
     height: 800px;
     background-color: salmon;
+
+    /* animation */
+    /* animation-name: sizeChange; */
+    animation-duration: 5s;
+    animation-iteration-count: 1;
+
+    /* makes animation stay as is at end */
+    animation-fill-mode: forwards;
 }
 
 #header{
@@ -24,6 +32,36 @@ body{
     text-align: center;
     /* add padding to the bottom */
     padding-bottom: 25px;
+
+    /* Name of animation */
+    animation-name: textColorChange;
+    /* How long the animation is */
+    animation-duration: 3s;
+    /* How many times the animation will play */
+    animation-iteration-count: infinite;
+}
+/* Example of a psuedo class */
+#header:hover{
+    font-size: 100px;
+}
+/* A non visited link */
+a:link{
+    font-size: 20px;
+    border: 2px solid purple;
+}
+/* Another example */
+a:visited{
+    color: limegreen
+}
+/* using a pseudo class to play an animation */
+#content:hover
+{
+    /* Name of animation */
+    animation-name: textColorChange;
+    /* How long the animation is */
+    animation-duration: 3s;
+    /* How many times the animation will play */
+    animation-iteration-count: infinite;
 }
 
 #nav-bar
@@ -51,8 +89,95 @@ body{
     margin: auto;
     padding: 10px;
     border:2px solid seagreen;
+
+    font-family: 'Metal Mania';
+
+
+    /* animation-name: percentageAnimation; */
+    animation-duration: 12s;
+    animation-iteration-count: infinite;
 }
 
 #loremIpsum{
     border: 10px double springgreen
+}
+
+/* Animations */
+/* Keyframes defines an animation */
+@keyframes textColorChange{
+    /* Starting at the color black */
+    from{
+        color: black
+    }
+    /* ending at magenta */
+    to{
+        color:magenta
+    }
+}
+
+/* You can animate anything! */
+@keyframes sizeChange
+{
+    from{
+        font-size: 10px;
+    }
+    to{
+        font-size: 69px;
+    }
+}
+
+@keyframes percentageAnimation
+{
+    0%{
+        background-color: salmon;
+        border: 0px double indigo;
+        font-size: 0px;
+
+    }
+    10%{
+        background-color: darkcyan;
+        border: 5px double palegoldenrod;
+        font-size: 10px;
+    }
+    11%{
+        background-color: fuchsia;
+        border: 5px double forestgreen;
+        font-size: 4px;
+    }
+    21%{
+        background-color: darkcyan;
+        border: 10px double palegoldenrod;
+        font-size: 20px;
+
+        /* We can also move something! */
+        /* transform: rotate(260) */
+    }
+    48%{
+        background-color: white;
+        border: 0px double white;
+        font-size: 0px;
+    }
+    60%{
+        background-color: lime;
+        border: 10% double palegoldenrod;
+        font-size: 20%;
+    }
+    67%
+    {
+        background-color: salmon;
+        border: 5px double indigo;
+        font-size: 10px;
+    }
+    99%
+    {
+        background-color: yellowgreen;
+        border: 30% dotted fuchsia;
+        font-size: 60%;
+        transform: rotate(2478deg)
+    }
+    100%{
+        background-color: salmon;
+          border: 0px double indigo;
+        font-size: 0px;
+    }
 }
