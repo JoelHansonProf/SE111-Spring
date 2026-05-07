@@ -4,88 +4,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Week 7 | Java?</title>
 </head>
 
 <body>
-    <h1>Week 7 | MORE JAVASCRIPT</h1>
 
-    <!-- Setting up a display -->
+    <h1>Week 7 | Holy crap even more JavaScript!</h1>
+    <br>
     <h2>Current Number</h2>
+    <!-- Setting up a number -->
     <h2 id="number">0</h2>
+
+    <!-- Setting up buttons! -->
+    <input type="button" id="increment" value="Increment">
+    <input type="button" id="decrement" value="Decrement">
+
+
+
+    <br>
     <hr>
-
-    <!-- Setting up buttons -->
-    <input type="button" id="increment" value="Increase">
-    <input type="button" id="decrement" value="Decrease">
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <!-- Setting up a joke container -->
+    <h2>The Best Joke in The World</h2>
+ 
+    <!-- Container for the joke -->
     <div id="jokeContainer">
-        <!-- Question div -->
-        <div id="question">
-            <h2>Why did the scarecrow get a promotion?</h2>
+        <!-- THe joke -->
+        <div id="theJoke">
+            <h3>Where Does A Polar Bear Store it's money?</h3>
         </div>
 
-        <!-- Answer Div -->
-        <div id="answer">
-
+        <!-- The Answer -->
+        <div id="jokeAnswer">
+            
         </div>
-        <!-- The button -->
-        <input type="button" id="giveAnswer" value="Why?">
-    </div> 
+        <!-- A Button -->
+        <input type="button" id="giveAnswer" value="Where?">
+    </div>
+
+    <br>
+    <hr>
+    <h2>Another Example</h2>
+    <!-- A text box! -->
+    <input type="text" id="textBox" placeholder="Enter some text...">
+ 
+    <!-- Place where we will save text -->
+    <div id="storedText">
+
+    </div>
+
+    <!-- A Button -->
+    <input type="button" id="saveTextButton" value="Save Text">
 
     <script>
-        //Getting the number text
+        // Getting the number text
         var numberText = document.querySelector("#number")
 
-        //Getting the buttons
-        var increaseButton = document.querySelector("#increment")
-        var decreaseButton = document.querySelector("#decrement")
+        // Getting the 2 buttons
+        var incrementButton = document.querySelector("#increment")
+        var decrementButton = document.querySelector("#decrement")
 
-        //The current number
-        var currentNumber = 0;
+        var currentNumber = 0
 
-        function addToNumber()
-        {
-            //Increment the current number
-            currentNumber++;
-            //Setting the innerHtml
+        // Adding to currentNumber
+        function add() {
+            currentNumber++
+            console.log(currentNumber)
+            // Setting the html
             numberText.innerHTML = currentNumber
         }
 
-        function subtractFromNumber()
-        {
-            //Decrementing the number
-            currentNumber--;
-            //Setting the inner html
+        function subtract() {
+            currentNumber--
+
+            console.log(currentNumber)
+            // Setting the HTML
             numberText.innerHTML = currentNumber
         }
 
-        //Adding event listeners
-        increaseButton.addEventListener("click",addToNumber)
-        decreaseButton.addEventListener("click", subtractFromNumber)
+        // Adding an evenet listener.
+        // THe first value is the event
+        //The second value is the function to call
+        incrementButton.addEventListener("click", add)
+        decrementButton.addEventListener("click", subtract)
 
 
-        // Getting the button and the answer container
-        var giveJokeAnswer = document.querySelector("#giveAnswer")
-        var answerContainer = document.querySelector("#answer")
+
+        var answerContainer = document.querySelector("#jokeAnswer")
+        var answerButton = document.querySelector("#giveAnswer")
 
         function giveAnswer()
         {
-            //ADding to the container
-            answerContainer.innerHTML += "<h3>He was OUTSTANDING in his field</h3>"
+            // Adding an h4 tag in the answerContainer div
+            answerContainer.innerHTML += "<h4>The Snow Bank!</h4>"
         }
 
-        //Setting an event listener
-        giveJokeAnswer.addEventListener("click", giveAnswer)
+        //Event
+        answerButton.addEventListener("click", giveAnswer)
 
+
+        var textBox = document.querySelector("#textBox")
+        var saveContainer = document.querySelector("#storedText")
+        var saveButton = document.querySelector("#saveTextButton")
+
+        function saveText()
+        {
+            // Storing the text
+            var text = textBox.value
+            //Using the stored value
+            saveContainer.innerHTML += "<p>" + text + "</p>"
+            // Resetting the textBox
+            textBox.value = ""
+        }
+
+        // Hooking it up to the button 
+        saveButton.addEventListener("click",saveText)
 
     </script>
-
 </body>
 
 </html>
