@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 9 | Parent's And Child Elements</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+    <div id="divContainer">
+        <p id="removeExample">We are going to remove this p tag</p>
+        <br>
+    </div>
+
+    <input type="button" id="killTheChild" value="Kill The Child" class="bigText">
+
+
+    <br>
+    <br>
+
+    <div id="foodContainer">
+
+        <img id="food" src="hotdog.jpg" style="width:45%; height:45%">
+        <br>
+        <input type="button" id="changeFood" value="I like Hamburgers instead!">
+    
+    </div>
+
+
+    <script>
+
+        //Getting the divContainer
+        var divContainer = document.querySelector("#divContainer")
+
+        //Creating a p tag
+        //Keep in mind that elements created this way are empty!
+        var pTag = document.createElement('p')
+
+        pTag.innerHTML += "This was created! In Javascript"
+
+        //We can also add attributes to these tags!
+        //Examples of attributes
+        //id
+        //class
+        //style
+        //src
+        //href
+
+        //Setting the class
+        pTag.setAttribute('class', 'bigText')
+
+        //Adding a style
+        pTag.setAttribute('style', "border: 1px solid black")
+
+        //Appending the child
+        divContainer.appendChild(pTag)
+
+
+        //A remove function
+        function removeTheChild()
+        {
+            var nate = document.querySelector("#removeExample")
+            divContainer.removeChild(nate)
+        }
+
+        //Getting the kill button
+        var killButton = document.querySelector("#killTheChild")
+
+        //Adding removeTheChild to the button
+        killButton.addEventListener('click',removeTheChild)
+
+
+        //made a function
+        function iLikeHamburgers()
+        {
+            //That gets the food image
+            var changeFood = document.querySelector("#food")
+            //and then changes the src attribute to hamburger.jpg
+            changeFood.setAttribute("src","burger.jpg")
+
+        }
+
+        //hooked it up to the button
+        var changeButton = document.querySelector("changeFood")
+        changeFood.addEventListener("click",iLikeHamburgers)
+
+
+    </script>
+
+    
+</body>
+</html>
